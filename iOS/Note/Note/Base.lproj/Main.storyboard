@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Cell-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController title="Cell" id="BYZ-38-t0r" customClass="ViewController" customModule="Note" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JQd-r3-79S">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="Wec-hk-gu3"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Notes" id="NK0-GV-Tas">
+                                        <barButtonItem key="rightBarButtonItem" title="New" id="v6J-Pz-H4S">
+                                            <connections>
+                                                <segue destination="gqT-vn-3zY" kind="show" id="2x6-kf-PEG"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="raI-ru-zyV">
+                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="Nz7-ET-kpV"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="k2c-Cr-L7Z"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="JQd-r3-79S" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="d0W-7X-gBj"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="JQd-r3-79S" secondAttribute="trailing" constant="-20" id="gbr-6h-7d7"/>
+                            <constraint firstItem="JQd-r3-79S" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="gst-R8-0h2"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="notesList" destination="raI-ru-zyV" id="B2i-TA-tLP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="304.5" y="361.5"/>
+        </scene>
+        <!--Second View Controller-->
+        <scene sceneID="Y0W-ZC-lyn">
+            <objects>
+                <viewController id="gqT-vn-3zY" customClass="SecondViewController" customModule="Note" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fJt-GE-mil"/>
+                        <viewControllerLayoutGuide type="bottom" id="U5u-R7-7Hl"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Xjy-8S-Ppv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vSe-hI-Peg">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <items>
+                                    <navigationItem id="6eq-g8-5Wh">
+                                        <barButtonItem key="leftBarButtonItem" title="AllNotes" id="IIx-HD-aOX">
+                                            <connections>
+                                                <segue destination="BYZ-38-t0r" kind="show" id="y4W-tD-K0V"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Done" id="0kY-eh-dBQ">
+                                            <connections>
+                                                <action selector="done:" destination="gqT-vn-3zY" id="afL-al-qCE"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f02-b6-fSq">
+                                <rect key="frame" x="0.0" y="56" width="375" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="5iT-gz-B8J"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Context" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UZT-pF-1cx">
+                                <rect key="frame" x="0.0" y="94" width="375" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="QWb-Lp-gYS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="f02-b6-fSq" firstAttribute="top" secondItem="vSe-hI-Peg" secondAttribute="bottom" constant="12" id="FXO-s0-rIQ"/>
+                            <constraint firstItem="UZT-pF-1cx" firstAttribute="top" secondItem="f02-b6-fSq" secondAttribute="bottom" constant="8" id="R5Q-JU-Pry"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="vSe-hI-Peg" secondAttribute="trailing" constant="-20" id="YLq-wQ-cfv"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="f02-b6-fSq" secondAttribute="trailing" constant="-20" id="aCD-bj-2w0"/>
+                            <constraint firstItem="vSe-hI-Peg" firstAttribute="top" secondItem="Xjy-8S-Ppv" secondAttribute="topMargin" id="bqr-In-JED"/>
+                            <constraint firstItem="vSe-hI-Peg" firstAttribute="leading" secondItem="Xjy-8S-Ppv" secondAttribute="leadingMargin" constant="-20" id="fGk-5G-azL"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="UZT-pF-1cx" secondAttribute="trailing" constant="-20" id="okd-n9-7fi"/>
+                            <constraint firstItem="f02-b6-fSq" firstAttribute="leading" secondItem="Xjy-8S-Ppv" secondAttribute="leadingMargin" constant="-20" id="ybD-SJ-qts"/>
+                            <constraint firstItem="UZT-pF-1cx" firstAttribute="leading" secondItem="Xjy-8S-Ppv" secondAttribute="leadingMargin" constant="-20" id="yim-tI-FRG"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="noteContext" destination="UZT-pF-1cx" id="cp2-5O-48l"/>
+                        <outlet property="noteTitle" destination="f02-b6-fSq" id="lj6-oA-smH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z4X-6n-JcD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="716.5" y="374.5"/>
+        </scene>
+    </scenes>
+</document>
